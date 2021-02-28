@@ -34,20 +34,20 @@ namespace Business.Concrete
             //İş Kolları
             if(DateTime.Now.Hour==22)
             {
-                return new ErrorResult();
+                return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
             }
-            return new SuccessDataResult<List<Car>>(_carDal.GetAll(), true,"Arabalar Listelendi");
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(),Messages.CarsListed);
             
         }
 
-        public Car GetById(int id)
+        public IDataResult<Car> GetById(int id)
         {
-            return _carDal.Get(c => c.Id == id);
+            return new SuccessDataResult<Car>(_carDal.Get(c => c.Id == id));
         }
 
-        public List<CarDetailDto> GetCarDetails()
+        public IDataResult<List<CarDetailDto>> GetCarDetails()
         {
-            return _carDal.GetCarDetails();
+            return new SuccessDataResult<List<CarDetailDto>>( _carDal.GetCarDetails());
         }
     }
 }
