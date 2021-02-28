@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Text;
 using Business.Abstract;
+using Business.Constants;
+using Core.Utilities.Results;
 using DataAccess.Abstract;
 using Entities.Concrete;
 using Entities.DTOs;
@@ -17,10 +19,24 @@ namespace Business.Concrete
             _carDal = carDal;
         }
 
-        public List<Car> GetAll()
+        public IResult Add(Car car)
+        {
+            if(car.Description.Length<2)
+            {
+                return new ErrorResult(Messages.CarDescriptionInvalid);
+            }
+            _carDal.Add(car);
+            return new SuccessResult(Messages.CarAdded);
+        }
+
+        public IDataResult<List<Car>> GetAll()
         {
             //İş Kolları
-            return _carDal.GetAll();
+            if(DateTime.Now.Hour==22)
+            {
+                return new ErrorResult();
+            }
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(), true,"Arabalar Listelendi");
             
         }
 
