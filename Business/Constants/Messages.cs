@@ -26,9 +26,9 @@ namespace Business.Constants
         public static string CustomerUpdated = "Müşteri Güncellendi";
         public static string CarDeleted = "Araba Silindi";
         public static string CarUpdated = "Araba Güncellendi";
-        internal static string ColorDeleted;
-        internal static string ColorUpdated;
-        internal static string BrandUpdated;
-        internal static string BrandDeleted;
+        public static string ColorDeleted = "Renk Silindi";
+        public static string ColorUpdated = "Renk Güncellendi";
+        public static string BrandUpdated = "Marka Güncellendi";
+        public static string BrandDeleted = "Marka Silindi";
     }
 }
