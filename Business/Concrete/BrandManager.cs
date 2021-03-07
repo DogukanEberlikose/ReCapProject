@@ -36,5 +36,15 @@ public BrandManager(IBrandDal brandDal)
         {
             return new SuccessDataResult<Brand>(_brandDal.Get(b => b.BrandId == id));
         }
+        public IResult Update(Brand brand)
+        {
+            _brandDal.Update(brand);
+            return new SuccessResult(Messages.BrandUpdated);
+        }
+        public IResult Delete(Brand brand)
+        {
+            _brandDal.Delete(brand);
+            return new SuccessResult(Messages.BrandDeleted);
+        }
     }
 }
