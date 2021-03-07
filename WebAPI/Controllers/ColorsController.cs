@@ -11,5 +11,6 @@ namespace WebAPI.Controllers
     [ApiController]
     public class ColorsController : ControllerBase
     {
+        //Daha burayı dolduramadım.Dolduracağım, örnek olarak cars'a bakabilirsin.
     }
 }

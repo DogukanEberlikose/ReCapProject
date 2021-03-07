@@ -11,5 +11,6 @@ namespace WebAPI.Controllers
     [ApiController]
     public class BrandsController : ControllerBase
     {
+        //Daha burayı dolduramadım.Dolduracağım, örnek olarak CarsController'a bakabilirsin.
     }
 }
