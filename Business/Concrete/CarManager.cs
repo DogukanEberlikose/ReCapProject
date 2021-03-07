@@ -29,10 +29,21 @@ namespace Business.Concrete
             return new SuccessResult(Messages.CarAdded);
         }
 
+        public IResult Delete(Car car)
+        {
+            _carDal.Delete(car);
+            return new SuccessResult(Messages.CarDeleted);
+        }
+        public IResult Update(Car car)
+        {
+            _carDal.Update(car);
+            return new SuccessResult(Messages.CarUpdated);
+        }
+
         public IDataResult<List<Car>> GetAll()
         {
             //İş Kolları
-            if(DateTime.Now.Hour==22)
+            if (DateTime.Now.Hour == 23)
             {
                 return new ErrorDataResult<List<Car>>(Messages.MaintenanceTime);
             }

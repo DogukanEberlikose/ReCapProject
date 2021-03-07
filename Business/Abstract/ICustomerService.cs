@@ -6,7 +6,7 @@ using Entities.Concrete;
 
 namespace Business.Abstract
 {
-    interface ICustomerService
+    public interface ICustomerService
     {
         IDataResult<List<Customer>> GetAll();
         IDataResult<Customer> GetById(int id);
