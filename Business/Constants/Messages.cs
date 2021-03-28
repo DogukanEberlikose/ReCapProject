@@ -30,6 +30,8 @@ namespace Business.Constants
         public static string ColorUpdated = "Renk Güncellendi";
         public static string BrandUpdated = "Marka Güncellendi";
         public static string BrandDeleted = "Marka Silindi";
-        internal static string GetAllByBrandId;
+        public static string CarCountOfBrandError = "Aynı kategoride en fazla 15 araç olabilir.";
+        public static string BrandNameAlreadyExists = "Marka adı sistemde mevcuttur.";
+        public static string BrandLimitExceded = "Marka limiti aşıldığı için ürün eklenemez.";
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using Business.Abstract;
 using Business.Constants;
@@ -19,12 +20,12 @@ public BrandManager(IBrandDal brandDal)
 
         public IResult Add(Brand brand)
         {
-            if (brand.BrandName.Length < 2)
+            if (CheckIfCarNameExists(brand.BrandName).Success)
             {
-                return new ErrorResult(Messages.BrandNameInvalid);
+                _brandDal.Add(brand);
+                return new SuccessResult(Messages.BrandAdded);
             }
-            _brandDal.Add(brand);
-            return new SuccessResult(Messages.BrandAdded);
+            return new ErrorResult(Messages.BrandNameAlreadyExists);
         }
 
         public IDataResult<List<Brand>> GetAll()
@@ -45,6 +46,16 @@ public BrandManager(IBrandDal brandDal)
         {
             _brandDal.Delete(brand);
             return new SuccessResult(Messages.BrandDeleted);
+        }
+
+        private IResult CheckIfCarNameExists(string brandName)
+        {
+            var result = _brandDal.GetAll(c => c.BrandName == brandName).Any();
+            if (result == true)
+            {
+                return new ErrorResult(Messages.BrandNameAlreadyExists);
+            }
+            return new SuccessResult();
         }
     }
 }
