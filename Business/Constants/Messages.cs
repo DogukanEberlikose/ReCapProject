@@ -30,5 +30,6 @@ namespace Business.Constants
         public static string ColorUpdated = "Renk Güncellendi";
         public static string BrandUpdated = "Marka Güncellendi";
         public static string BrandDeleted = "Marka Silindi";
+        internal static string GetAllByBrandId;
     }
 }

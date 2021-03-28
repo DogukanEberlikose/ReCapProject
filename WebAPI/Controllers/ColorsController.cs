@@ -20,6 +20,7 @@ namespace WebAPI.Controllers
             _colorService = colorService;
         }
         //Get All Colors
+        [Route("GetAll")]
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -67,7 +68,7 @@ namespace WebAPI.Controllers
 
             return BadRequest(result);
         }
-
+        [Route("add")]
         [HttpPost]
         public IActionResult Add(Color color)
         {
