@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using System.Text;
+using Core.Entities.Concrete;
 
 namespace Business.Constants
 {
@@ -33,5 +35,12 @@ namespace Business.Constants
         public static string CarCountOfBrandError = "Aynı kategoride en fazla 15 araç olabilir.";
         public static string BrandNameAlreadyExists = "Marka adı sistemde mevcuttur.";
         public static string BrandLimitExceded = "Marka limiti aşıldığı için ürün eklenemez.";
+        public static string AuthorizationDenied = "Yetkiniz yok.";
+        public static string UserRegistered = "Kayıt olundu.";
+        public static string UserNotFound = "Kayıt olunamadı.";
+        public static string PasswordError = "Parola hatası";
+        public static string SuccessfulLogin = "Başarılı giriş";
+        public static string UserAlreadyExists = "Kullanıcı Mevcut";
+        public static string AccessTokenCreated = "Token oluşturuldu.";
     }
 }
