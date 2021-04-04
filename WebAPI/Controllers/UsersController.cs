@@ -20,8 +20,8 @@ namespace WebAPI.Controllers
         {
             _userService = userService;
         }
-
-        [HttpGet]
+        
+        [HttpGet("getall")]
         public IActionResult GetAll()
         {
             var result = _userService.GetAll();
@@ -32,8 +32,8 @@ namespace WebAPI.Controllers
 
             return BadRequest(result);
         }
-        [Route("GetById")]
-        [HttpGet]
+        
+        [HttpGet("getbyid")]
         public IActionResult GetById(int id)
         {
             var result = _userService.GetById(id);
@@ -44,8 +44,8 @@ namespace WebAPI.Controllers
 
             return BadRequest(result);
         }
-        [Route("delete")]
-        [HttpPost]
+        
+        [HttpPost("delete")]
         public IActionResult Delete(User user)
         {
             var result = _userService.Delete(user);
@@ -56,8 +56,8 @@ namespace WebAPI.Controllers
 
             return BadRequest(result);
         }
-        [Route("update")]
-        [HttpPost]
+        
+        [HttpPost("update")]
         public IActionResult Update(User user)
         {
             var result = _userService.Update(user);
@@ -68,8 +68,8 @@ namespace WebAPI.Controllers
 
             return BadRequest(result);
         }
-
-        [HttpPost]
+        
+        [HttpPost("add")]
         public IActionResult Add(User user)
         {
             var result = _userService.Add(user);

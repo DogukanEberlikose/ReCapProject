@@ -19,7 +19,7 @@ namespace WebAPI.Controllers
             _customerService = customerService;
         }
         //Get All Customers
-        [HttpGet]
+        [HttpGet("getall")]
         public IActionResult GetAll()
         {
             var result = _customerService.GetAll();
@@ -30,9 +30,20 @@ namespace WebAPI.Controllers
 
             return BadRequest(result);
         }
+        [HttpGet("getcustomerdetail")]
+        public IActionResult GetCustomerDetails()
+        {
+            var result = _customerService.GetCustomerDetails();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
 
-        [Route("GetById")]
-        [HttpGet]
+            return BadRequest(result);
+        }
+
+
+        [HttpGet("GetById")]
         public IActionResult GetById(int id)
         {
             var result = _customerService.GetById(id);
@@ -42,8 +53,8 @@ namespace WebAPI.Controllers
             }
             return BadRequest(result);
         }
-        [Route("delete")]
-        [HttpPost]
+        
+        [HttpPost("delete")]
         public IActionResult Delete(Customer customer)
         {
             var result = _customerService.Delete(customer);
@@ -54,8 +65,8 @@ namespace WebAPI.Controllers
 
             return BadRequest(result);
         }
-        [Route("update")]
-        [HttpPost]
+        
+        [HttpPost("update")]
         public IActionResult Update(Customer customer)
         {
             var result = _customerService.Update(customer);
@@ -66,8 +77,8 @@ namespace WebAPI.Controllers
 
             return BadRequest(result);
         }
-
-        [HttpPost]
+        
+        [HttpPost("add")]
         public IActionResult Add(Customer customer)
         {
             var result = _customerService.Add(customer);
